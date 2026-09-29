@@ -3,7 +3,6 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { WhyUs } from './components/WhyUs';
 import { Services } from './components/Services';
-import { SmartCalculator } from './components/SmartCalculator';
 import { WorkProcess } from './components/WorkProcess';
 import { PartnersMarquee } from './components/PartnersMarquee';
 import { StatsBar } from './components/StatsBar';
@@ -41,9 +40,6 @@ export default function SukukUpdatedPage() {
 
         {/* 3. Why Choose Ryan */}
         <WhyUs />
-
-        {/* 4. Smart Duration & Requirements Calculator (Conversion Booster) */}
-        <SmartCalculator />
 
         {/* 5. Work Process & Methodology */}
         <WorkProcess />

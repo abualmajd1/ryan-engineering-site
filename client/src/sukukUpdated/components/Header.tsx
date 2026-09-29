@@ -18,7 +18,6 @@ export const Header: React.FC<{ landingMode?: boolean }> = ({ landingMode = fals
   const navLinks = [
     { label: 'الرئيسية', href: '#home' },
     { label: 'خدماتنا', href: '#services' },
-    ...(landingMode ? [] : [{ label: 'حاسبة المدة', href: '#calculator' }]),
     { label: 'لماذا نحن', href: landingMode ? '#why-ryan' : '#about' },
     { label: 'تواصل معنا', href: '#contact' },
   ];
