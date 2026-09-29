@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://abdoaboelmgd.github.io/ryan-engineering-site/sitemap.xml

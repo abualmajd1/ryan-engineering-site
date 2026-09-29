@@ -1,0 +1,415 @@
+
+
+@theme {
+  /* Colors in standard kebab-case */
+  --color-rk-maroon: #5C2430;
+  --color-rk-maroon-dark: #3F1620;
+  --color-rk-maroon-deep: #3F1620;
+  --color-rk-maroon-light: #7A2C40;
+
+  --color-rk-navy: #5C2430;
+  --color-rk-navy-dark: #3F1620;
+  --color-rk-navy-deep: #3F1620;
+
+  --color-rk-gold: #C9A063;
+  --color-rk-gold-light: #D8B87E;
+  --color-rk-gold-dark: #8B6535;
+  --color-rk-amber: #C89A52;
+
+  --color-rk-wa: #25D366;
+  --color-rk-bg: #F7F4EE;
+  --color-rk-bg-warm: #E8DFD0;
+  --color-rk-card: #ffffff;
+  --color-rk-text: #2F2F2F;
+  --color-rk-muted: #6B7280;
+  --font-sans: 'Alexandria', 'Cairo', 'Tajawal', sans-serif;
+}
+
+/* Fallback direct utility classes ensuring 100% compatibility in all build environments */
+.bg-rkGold, .bg-rk-gold { background-color: #C9A063 !important; }
+.bg-rkGoldDark, .bg-rk-gold-dark { background-color: #8B6535 !important; }
+.bg-rkGoldLight, .bg-rk-gold-light { background-color: #D8B87E !important; }
+.text-rkGold, .text-rk-gold { color: #C9A063 !important; }
+.text-rkGoldDark, .text-rk-gold-dark { color: #8B6535 !important; }
+.text-rkGoldLight, .text-rk-gold-light { color: #D8B87E !important; }
+.border-rkGold, .border-rk-gold { border-color: #C9A063 !important; }
+.border-rkGoldDark, .border-rk-gold-dark { border-color: #8B6535 !important; }
+
+.bg-rkNavy, .bg-rk-navy, .bg-rkMaroon, .bg-rk-maroon { background-color: #5C2430 !important; }
+.bg-rkNavyDark, .bg-rk-navy-dark, .bg-rkMaroonDark, .bg-rk-maroon-dark { background-color: #3F1620 !important; }
+.text-rkNavy, .text-rk-navy, .text-rkMaroon, .text-rk-maroon { color: #5C2430 !important; }
+.text-rkMuted, .text-rk-muted { color: #6B7280 !important; }
+
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Alexandria', 'Cairo', 'Tajawal', sans-serif;
+}
+
+body {
+  background-color: #F7F4EE;
+  color: #2F2F2F;
+  overflow-x: hidden;
+}
+
+/* ====== Hero Background ====== */
+.rk-hero {
+  background:
+    linear-gradient(135deg, rgba(43, 15, 22, 0.96) 0%, rgba(63, 22, 32, 0.93) 50%, rgba(92, 31, 46, 0.92) 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(201, 151, 60, 0.07) 39px, rgba(201, 151, 60, 0.07) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(201, 151, 60, 0.07) 39px, rgba(201, 151, 60, 0.07) 40px),
+    url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* ====== Card & Button Hover Effects ====== */
+.rk-card-hover {
+  transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.25s, border-color 0.25s;
+}
+.rk-card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(92, 31, 46, 0.16);
+  border-color: #C9A063;
+}
+
+.rk-icon-hover {
+  transition: transform 0.25s, background 0.25s;
+}
+.rk-card-hover:hover .rk-icon-hover {
+  transform: scale(1.12) rotate(-4deg);
+  background: #C9A063;
+  color: #fff !important;
+}
+
+.rk-gallery-item {
+  cursor: pointer;
+}
+.rk-gallery-item img {
+  transition: transform 0.7s ease;
+}
+.rk-gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.rk-btn {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.rk-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+.rk-btn-call:hover {
+  box-shadow: 0 12px 30px rgba(201, 151, 60, 0.4);
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #C9A063, #D8B87E);
+  margin: 14px auto 0;
+  border-radius: 4px;
+}
+
+/* ====== Marquee ====== */
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  position: relative;
+  padding: 1rem 0;
+}
+.marquee-wrapper::before,
+.marquee-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #F7F4EE 0%, transparent 100%);
+}
+.marquee-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #F7F4EE 0%, transparent 100%);
+}
+
+.marquee-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  animation: marqueeAnim 35s linear infinite;
+  padding-right: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .marquee-wrapper::before,
+  .marquee-wrapper::after {
+    width: 120px;
+  }
+  .marquee-content {
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.marquee-wrapper:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeAnim {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+.partner-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  padding: 0.35rem 0.75rem;
+  height: 44px;
+  min-width: 90px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+}
+.partner-logo img {
+  max-height: 28px;
+  max-width: 75px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.75;
+  transition: all 0.3s;
+}
+
+@media (min-width: 768px) {
+  .partner-logo {
+    padding: 0.5rem 1.5rem;
+    height: 70px;
+    min-width: 150px;
+  }
+  .partner-logo img {
+    max-height: 42px;
+    max-width: 140px;
+  }
+}
+
+.partner-logo:hover {
+  border-color: #C9A063;
+  box-shadow: 0 5px 15px rgba(201,151,60,0.22);
+}
+.partner-logo:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.accredited-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 1rem;
+  padding: 0.4rem 0.8rem;
+  height: 48px;
+  min-width: 95px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.accredited-logo img {
+  max-height: 34px;
+  max-width: 85px;
+  object-fit: contain;
+  filter: none;
+  opacity: 0.95;
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .accredited-logo {
+    padding: 0.5rem 1.25rem;
+    height: 70px;
+    min-width: 130px;
+  }
+  .accredited-logo img {
+    max-height: 50px;
+    max-width: 120px;
+  }
+}
+.accredited-logo:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* WhatsApp pulse */
+@keyframes pulse-wa {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+.pulse-wa {
+  animation: pulse-wa 2s infinite;
+}
+
+/* Updated Sukuk conversion forms: readable premium glass surface */
+.sukuk-updated-page .sukuk-glass-form {
+  background: linear-gradient(145deg, rgba(255,255,255,.88), rgba(255,255,255,.66)) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(145%);
+  backdrop-filter: blur(22px) saturate(145%);
+  box-shadow: 0 24px 70px rgba(63,22,32,.26), inset 0 1px 0 rgba(255,255,255,.9);
+}
+.sukuk-updated-page #contact .sukuk-glass-form {
+  background: linear-gradient(145deg, rgba(255,255,255,.18), rgba(255,255,255,.08)) !important;
+  border-color: rgba(255,255,255,.34);
+}
+.sukuk-updated-page .sukuk-glass-form input,
+.sukuk-updated-page .sukuk-glass-form select,
+.sukuk-updated-page .sukuk-glass-form textarea { min-height: 44px; }
+.sukuk-updated-page .sukuk-glass-form button,
+.sukuk-updated-page .sukuk-glass-form a { -webkit-tap-highlight-color: transparent; }
+
+/* Calm deep Hero background: no image, optimized for readable Arabic content */
+.sukuk-updated-page .sukuk-hero-surface {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(201,160,99,.20) 0%, rgba(201,151,60,0) 34%),
+    radial-gradient(circle at 14% 86%, rgba(117,54,55,.34) 0%, rgba(117,54,55,0) 38%),
+    linear-gradient(128deg, #1D1017 0%, #3F1620 42%, #4A1D2A 73%, #25131C 100%);
+  background-color: #3F1620;
+}
+.sukuk-updated-page .sukuk-hero-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(22,10,16,.20), rgba(63,22,32,.06) 52%, rgba(244,235,221,.08)),
+    linear-gradient(180deg, rgba(15,8,13,.18), rgba(15,8,13,.04) 55%, rgba(15,8,13,.28));
+}
+@media (max-width: 767px) {
+  .sukuk-updated-page .sukuk-hero-surface {
+    background:
+      radial-gradient(circle at 50% 12%, rgba(201,160,99,.18) 0%, rgba(201,151,60,0) 38%),
+      radial-gradient(circle at 10% 86%, rgba(117,54,55,.30) 0%, rgba(117,54,55,0) 44%),
+      linear-gradient(160deg, #1D1017 0%, #3F1620 52%, #4A1D2A 100%);
+  }
+  .sukuk-updated-page .sukuk-hero-surface::after {
+    background: linear-gradient(180deg, rgba(15,8,13,.16), rgba(15,8,13,.02) 48%, rgba(15,8,13,.30));
+  }
+}
+/* Final reference-brand header and contact form refinements */
+.sukuk-updated-page #main-header {
+  background: linear-gradient(135deg, rgba(244,235,221,.98) 0%, rgba(232,215,193,.97) 52%, rgba(217,195,165,.96) 100%) !important;
+  color: #3F1620;
+  box-shadow: 0 8px 30px rgba(63,22,32,.14);
+}
+.sukuk-updated-page #main-header #mobile-nav-dropdown {
+  background: linear-gradient(180deg, #F7F4EE 0%, #E8DFD0 100%) !important;
+}
+.sukuk-updated-page #contact .sukuk-glass-form,
+.sukuk-updated-page #contact .sukuk-glass-form h3,
+.sukuk-updated-page #contact .sukuk-glass-form label,
+.sukuk-updated-page #contact .sukuk-glass-form p {
+  color: #5C2430 !important;
+}
+.sukuk-updated-page #contact .sukuk-glass-form label {
+  font-weight: 700;
+}
+.sukuk-updated-page #contact .sukuk-glass-form label .text-white\/70 {
+  color: rgba(92,36,48,.70) !important;
+}
+.sukuk-updated-page #contact .sukuk-glass-form .text-white {
+  color: #5C2430 !important;
+}
+.sukuk-updated-page #contact .sukuk-glass-form button,
+.sukuk-updated-page #contact .sukuk-glass-form button .text-white {
+  color: #fff !important;
+}
+
+/* Centered service-card layout for the surveying, consulting, and permits landing pages */
+.sukuk-updated-page .landing-services-grid {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+}
+@media (min-width: 1024px) {
+  .sukuk-updated-page .landing-services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+  .sukuk-updated-page .landing-services-grid > * {
+    flex: 0 1 calc((100% - 3rem) / 3);
+  }
+}
+@media (max-width: 1023px) {
+  .sukuk-updated-page .landing-services-grid {
+    display: grid;
+  }
+}
+
+/* Surveying landing page: responsive art direction for desktop and mobile */
+.surveying-hero-surface {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.surveying-hero-surface-desktop {
+  display: block;
+  background-position: center center;
+}
+.surveying-hero-surface-mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  .surveying-hero-surface-desktop {
+    display: none;
+  }
+  .surveying-hero-surface-mobile {
+    display: block;
+    background-position: 67% center;
+  }
+}
+
+/* Shared responsive art direction for generated landing-page hero backgrounds */
+.landing-hero-surface {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.landing-hero-surface-desktop {
+  display: block;
+  background-position: center center;
+}
+.landing-hero-surface-mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  .landing-hero-surface-desktop {
+    display: none;
+  }
+  .landing-hero-surface-mobile {
+    display: block;
+    background-position: center center;
+    background-size: 100% 100%;
+  }
+}
