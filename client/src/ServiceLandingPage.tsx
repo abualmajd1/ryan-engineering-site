@@ -57,7 +57,65 @@ function Services({ page }: { page: LandingPage }) {
   ] : [];
   return <section id="services" className="py-20 sm:py-24 bg-gradient-to-b from-[#F7F4EE]/50 via-white to-[#F7F4EE]/30 relative overflow-hidden"><div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{backgroundImage:'radial-gradient(#5C2430 1px, transparent 1px), radial-gradient(#C9A063 1px, #fff 1px)',backgroundSize:'32px 32px'}} /><div className="container mx-auto px-4 lg:max-w-7xl relative z-10"><div className="text-center max-w-3xl mx-auto mb-16"><div className="inline-flex items-center gap-2 bg-amber-50 border border-rkGold/30 text-rkGoldDark text-xs font-bold px-3.5 py-1.5 rounded-full mb-3 shadow-2xs"><ShieldCheck className="w-4 h-4 text-rkGold"/><span>خدمات هندسية ومساحية معتمدة ومخرجات واضحة</span></div><h2 className="section-title text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3F1620] mb-4 tracking-tight">{page.servicesTitle || `خدماتنا المتخصصة في ${page.service}`}</h2><p className="text-stone-600 text-sm sm:text-base md:text-lg leading-relaxed">{page.servicesDescription || `حلول دقيقة ومتكاملة في ${page.service}، تبدأ بفهم احتياجك وتنتهي بمخرج هندسي واضح قابل للمراجعة.`}</p></div><div className="landing-services-grid grid grid-cols-1 md:grid-cols-2 gap-6">{page.services.map(([title,desc],i)=>{const serviceUrl=whatsapp(`${page.whatsapp}\nالخدمة المطلوبة: ${title}`); return <div key={title} className="bg-white rounded-2xl border border-stone-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative flex flex-col justify-between overflow-hidden group hover:border-rkGold"><div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-rkGold via-rkGoldLight to-rkGold opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>{serviceImages[i] && <div className="relative aspect-[3/2] overflow-hidden bg-[#3F1620]"><img src={`${import.meta.env.BASE_URL}assets/${serviceImages[i]}`} alt={title} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"/><div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#3F1620]/55 via-transparent to-transparent"/></div>}<div className="p-6 flex flex-col flex-grow"><div className="flex items-center justify-between gap-2 mb-5"><span className="text-xs font-black tracking-wider text-rkGold bg-amber-50/90 px-2 py-0.5 rounded-md border border-rkGold/20 font-mono">{String(i+1).padStart(2,'0')}</span><span className="text-[11px] font-bold text-[#5C2430] bg-[#5C2430]/5 border border-[#5C2430]/10 px-2.5 py-0.5 rounded-full">{i===0?'الأكثر طلباً':i===1?'خدمة متخصصة':'مخرج واضح'}</span></div><div className="flex items-center gap-4 mb-4"><div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-50 to-[#F7F4EE] border border-[#C9A063]/40 text-[#C9A063] group-hover:bg-[#5C2430] transition-all duration-300 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105"><FileCheck2 className="w-7 h-7 text-[#C9A063]"/></div><h3 className="font-extrabold text-[#3F1620] text-base md:text-lg group-hover:text-[#5C2430] transition-colors leading-snug">{title}</h3></div><div className="w-10 h-0.5 bg-gradient-to-r from-rkGold to-transparent mb-3.5"/><p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-5">{desc}</p><div className="mt-auto pt-3 border-t border-stone-100 space-y-2 mb-5"><div className="flex items-center gap-2 text-xs text-stone-700"><CheckCircle2 className="w-3.5 h-3.5 text-[#C9A063] shrink-0"/><span>مراجعة المتطلبات والبيانات</span></div><div className="flex items-center gap-2 text-xs text-stone-700"><CheckCircle2 className="w-3.5 h-3.5 text-[#C9A063] shrink-0"/><span>مخرج هندسي قابل للمراجعة</span></div></div></div><div className="p-4 bg-stone-50/70 border-t border-stone-100 flex items-center gap-2"><a href={serviceUrl} target="_blank" rel="noreferrer" className="flex-grow bg-[#5C2430] hover:bg-[#3F1620] text-white hover:text-[#C89A52] text-xs font-bold py-2.5 px-3 rounded-xl transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm"><MessageCircle className="w-3.5 h-3.5 text-[#C89A52]"/><span className="text-white font-bold">طلب الخدمة</span><ArrowUpRight className="w-3.5 h-3.5 text-white/80"/></a><a href={`tel:${PHONE_NUMBER}`} className="w-9 h-9 rounded-xl border border-stone-200 hover:border-rkGold hover:bg-amber-50 text-[#5C2430] hover:text-rkGoldDark flex items-center justify-center transition-colors shrink-0" title={`اتصال هاتفي مباشر بخصوص ${title}`} aria-label={`اتصال بخصوص ${title}`}><Phone className="w-3.5 h-3.5 text-[#5C2430]"/></a></div></div>})}</div></div></section>;
 }
-function Why({ page }: { page: LandingPage }) { const reasons=['خبرة مرتبطة بالخدمة','متطلبات ومخرجات واضحة','متابعة مهنية حتى التسليم']; return <section id="why-ryan" className="py-20 sm:py-24 bg-[#F7F4EE] border-t border-stone-200/60"><div className="container mx-auto px-4 lg:max-w-7xl"><div className="text-center max-w-3xl mx-auto mb-14"><span className="inline-flex bg-amber-50 border border-rkGold/30 text-rkGoldDark text-xs font-bold px-3.5 py-1.5 rounded-full mb-3">دقة • وضوح • التزام</span><h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3F1620]">{page.whyTitle || `لماذا تختار مكتب ريان في ${page.service}؟`}</h2><p className="text-stone-600 mt-4">نربط الخبرة الهندسية بمتطلبات {page.service} لنقدم لك قراراً أوضح وتواصلاً منظماً من أول خطوة حتى التسليم.</p></div><div className="grid grid-cols-1 md:grid-cols-3 gap-6">{reasons.map((title,i)=><div key={title} className="bg-white rounded-2xl p-7 border border-stone-200 shadow-sm text-center"><div className="w-14 h-14 mx-auto rounded-2xl bg-[#5C2430] text-[#C9A063] flex items-center justify-center mb-4"><ShieldCheck className="w-7 h-7"/></div><h3 className="font-extrabold text-[#3F1620] text-lg mb-2">{title}</h3><p className="text-sm text-stone-600 leading-relaxed">{i===0? page.description : i===1?'نوضح المطلوب والوثائق ونطاق العمل قبل البدء.':'نشرح لك المرحلة التالية ونبقي المتابعة سهلة ومباشرة.'}</p></div>)}</div></div></section>; }
+function Why({ page }: { page: LandingPage }) {
+  const isSurveying = page.slug === 'surveying-riyadh';
+  const isEngineering = page.slug === 'engineering-consulting-riyadh';
+  const reasons = [
+    {
+      title: 'خبرة مرتبطة بالخدمة',
+      icon: isSurveying ? <MapPin className="w-7 h-7" /> : isEngineering ? <FileCheck className="w-7 h-7" /> : <ShieldCheck className="w-7 h-7" />,
+      description: isSurveying
+        ? 'نحوّل بيانات الموقع إلى حدود ومناسيب ومخرجات مساحية واضحة.'
+        : isEngineering
+          ? 'نربط احتياج المشروع بالتصميم والمخططات والإشراف أو التقرير المناسب.'
+          : 'نراجع نوع الرخصة وبيانات المبنى ونحدد مسار الإجراء المناسب.',
+    },
+    {
+      title: 'متطلبات ومخرجات واضحة',
+      icon: <FileCheck2 className="w-7 h-7" />,
+      description: isSurveying
+        ? 'نرتب بيانات العقار والمستندات ونوضح المخرج المساحي المطلوب.'
+        : isEngineering
+          ? 'نحدد نطاق العمل والمخططات والمخرجات قبل بدء التنفيذ.'
+          : 'نرتب متطلبات الطلب والمخططات والبيانات قبل رفع المعاملة.',
+    },
+    {
+      title: 'متابعة مهنية حتى التسليم',
+      icon: <MessageCircle className="w-7 h-7" />,
+      description: isSurveying
+        ? 'نشرح نتائج الرفع والخطوة التالية ونسهّل التواصل حتى التسليم.'
+        : isEngineering
+          ? 'نوضح الملاحظات والمرحلة التالية مع متابعة منظمة للمشروع.'
+          : 'نتابع الملاحظات ونوضح الإجراء التالي ضمن نطاق الخدمة.',
+    },
+  ];
+  const accents = [
+    'from-[#5C2430] to-[#7A3144]',
+    'from-[#8C6733] to-[#C9A063]',
+    'from-[#285C50] to-[#3E8B6D]',
+  ];
+
+  return <section id="why-ryan" className="py-20 sm:py-24 bg-[#F7F4EE] border-t border-stone-200/60">
+    <div className="container mx-auto px-4 lg:max-w-7xl">
+      <div className="text-center max-w-3xl mx-auto mb-14">
+        <span className="inline-flex bg-amber-50 border border-rkGold/30 text-rkGoldDark text-xs font-bold px-3.5 py-1.5 rounded-full mb-3">دقة • وضوح • التزام</span>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3F1620]">{page.whyTitle || `لماذا تختار مكتب ريان في ${page.service}؟`}</h2>
+        <p className="text-stone-600 mt-4">نربط الخبرة الهندسية بمتطلبات {page.service} لنقدم لك قراراً أوضح وتواصلاً منظماً من أول خطوة حتى التسليم.</p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {reasons.map((reason, i) => <div key={reason.title} className="group relative overflow-hidden bg-white rounded-2xl p-7 border border-stone-200 shadow-sm text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-rkGold">
+          <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${accents[i]}`} />
+          <span className="absolute top-4 right-5 text-[11px] font-black tracking-widest text-stone-300">0{i + 1}</span>
+          <div className={`relative w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${accents[i]} text-white flex items-center justify-center mb-5 shadow-md ring-8 ring-[#F7F4EE] transition-transform duration-300 group-hover:scale-110`}>
+            {reason.icon}
+          </div>
+          <h3 className="font-extrabold text-[#3F1620] text-lg mb-2">{reason.title}</h3>
+          <p className="text-sm text-stone-600 leading-relaxed">{reason.description}</p>
+        </div>)}
+      </div>
+    </div>
+  </section>;
+}
 
 function Process({ page }: { page: LandingPage }) { return <section className="py-20 sm:py-24 bg-white border-t border-stone-200/60"><div className="container mx-auto px-4 lg:max-w-7xl"><div className="text-center max-w-3xl mx-auto mb-14"><span className="inline-flex bg-amber-50 border border-rkGold/30 text-rkGoldDark text-xs font-bold px-3.5 py-1.5 rounded-full mb-3">خطوات العمل المعتمدة</span><h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3F1620]">آلية وإجراءات العمل</h2><p className="text-stone-600 mt-4">منهجية واضحة ومبسطة لضمان راحة العميل وسرعة الإنجاز في {page.service}.</p></div><div className="grid grid-cols-1 sm:grid-cols-3 gap-6">{page.process.map((item,i)=><div key={item} className="bg-[#F7F4EE] rounded-2xl p-8 text-center border border-stone-200 relative shadow-sm"><div className="w-14 h-14 mx-auto rounded-full bg-[#5C2430] text-rkGold font-black text-2xl flex items-center justify-center mb-4 ring-4 ring-amber-50">{String(i+1).padStart(2,'0')}</div><h4 className="font-extrabold text-[#3F1620] text-lg">{item}</h4></div>)}</div></div></section>; }
 

@@ -6,17 +6,23 @@ export const WhyUs: React.FC = () => {
     {
       icon: <ShieldCheck className="w-8 h-8 text-[#C9A063]" />,
       title: 'اعتماد رسمي موثوق',
-      desc: 'معتمدون لدى البلديات ووزارة الشؤون البلدية والقروية والإسكان، منصة بلدي، منصة إحكام، وكافة كتابات العدل لضمان سلامة معاملاتك.',
+      desc: 'معتمدون لدى البلديات ووزارة البلديات والإسكان، ومنصتي بلدي وإحكام، وكتابات العدل؛ لضمان سلامة معاملاتك.',
+      accent: 'from-[#5C2430] to-[#7A3144]',
+      meta: 'اعتماد رسمي موثق',
     },
     {
       icon: <Compass className="w-8 h-8 text-[#C9A063]" />,
       title: 'حلول هندسية متكاملة',
-      desc: 'فريق متكامل من مهندسين ومساحين مرخصين ومصنفين يضمنون لك إنجاز كافة معاملات الصكوك والمخططات بدقة وسرعة متناهية.',
+      desc: 'فريق متكامل من مهندسين ومساحين مرخصين ومصنفين ينجز معاملات الصكوك والمخططات بدقة وسرعة.',
+      accent: 'from-[#8C6733] to-[#C9A063]',
+      meta: 'فريق هندسي متكامل',
     },
     {
       icon: <Satellite className="w-8 h-8 text-[#C9A063]" />,
       title: 'أحدث التقنيات المساحية',
-      desc: 'نستخدم أحدث أجهزة GPS والمحطات الشاملة (Total Station) لتقديم تقارير مساحية دقيقة معتمدة وخالية تماماً من الأخطاء.',
+      desc: 'نستخدم أجهزة GPS والمحطات الشاملة (Total Station) لإعداد تقارير مساحية دقيقة وقابلة للمراجعة.',
+      accent: 'from-[#285C50] to-[#3E8B6D]',
+      meta: 'تقنيات مساحية حديثة',
     },
   ];
 
@@ -42,10 +48,12 @@ export const WhyUs: React.FC = () => {
           {reasons.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white p-8 rounded-3xl border border-stone-200/80 rk-card-hover shadow-sm hover:shadow-xl hover:border-rkGold transition-all flex flex-col justify-between"
+              className="group relative overflow-hidden bg-white p-8 rounded-3xl border border-stone-200/80 rk-card-hover shadow-sm hover:shadow-xl hover:border-rkGold transition-all flex flex-col justify-between"
             >
               <div>
-                <div className="w-16 h-16 bg-[#5C2430] rounded-2xl flex items-center justify-center mb-6 shadow-md border border-[#C9A063]/40 text-[#C9A063]">
+                <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${item.accent}`} />
+                <span className="absolute top-6 left-7 text-[11px] font-black tracking-widest text-stone-300">0{idx + 1}</span>
+                <div className={`w-16 h-16 bg-gradient-to-br ${item.accent} rounded-2xl flex items-center justify-center mb-6 shadow-md border border-[#C9A063]/40 text-white transition-transform duration-300 group-hover:scale-110`}>
                   {item.icon}
                 </div>
                 <h4 className="text-xl font-extrabold text-[#3F1620] mb-3">{item.title}</h4>
@@ -53,9 +61,9 @@ export const WhyUs: React.FC = () => {
               </div>
 
               <div className="mt-6 pt-4 border-t border-stone-100 flex items-center gap-2 text-xs font-bold text-rkGoldDark">
-                <span>خدمة معتمدة وفورية</span>
+                <span>{item.meta}</span>
                 <span className="text-stone-300">•</span>
-                <span>فريق مرخص</span>
+                <span>مخرجات قابلة للمراجعة</span>
               </div>
             </div>
           ))}
