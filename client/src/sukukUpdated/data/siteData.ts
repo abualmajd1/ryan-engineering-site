@@ -318,7 +318,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
 ];
 
 export const STATS_DATA: StatItem[] = [
-  { value: 15, prefix: '+', label: 'سنة من الخبرة' },
+  { value: 7, prefix: '+', label: 'سنة من الخبرة' },
   { value: 3500, prefix: '+', label: 'عميل يثق بنا' },
   { value: 100, suffix: '%', label: 'دقة واعتمادية' },
   { value: 24, suffix: '/7', label: 'دعم واستشارات' },
