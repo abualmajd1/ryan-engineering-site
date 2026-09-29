@@ -90,7 +90,7 @@ export const Hero: React.FC = () => {
                   <Award className="w-5 h-5 text-[#C89A52]" />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-sm">خبرة 15+ سنة</h4>
+                  <h4 className="text-white font-bold text-sm">خبرة 7+ سنوات</h4>
                   <p className="text-stone-300 text-xs">كوادر هندسية ومساحية</p>
                 </div>
               </div>
