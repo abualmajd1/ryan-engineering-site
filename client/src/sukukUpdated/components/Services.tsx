@@ -1,5 +1,6 @@
 import React from 'react';
 import { SERVICES_DATA, PHONE_NUMBER, WHATSAPP_NUMBER } from '../data/siteData';
+import { ryanAsset } from '../../runtime';
 import {
   Phone,
   CheckCircle2,
@@ -88,7 +89,7 @@ export const Services: React.FC = () => {
                 {/* Service Image */}
                 <div className="relative aspect-[3/2] overflow-hidden bg-[#3F1620]">
                   <img
-                    src={`${import.meta.env.BASE_URL}assets/${SERVICE_IMAGES[srv.id]}`}
+                    src={ryanAsset(`assets/${SERVICE_IMAGES[srv.id]}`)}
                     alt={srv.title}
                     loading="lazy"
                     decoding="async"

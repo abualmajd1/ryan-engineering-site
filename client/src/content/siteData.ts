@@ -1,4 +1,6 @@
-const asset = (name: string) => `${import.meta.env.BASE_URL}assets/${name}`;
+import { ryanAsset } from '../runtime';
+
+const asset = (name: string) => ryanAsset(`assets/${name}`);
 
 export type Service = {
   id: string; slug: string; name: string; category: string; shortDescription: string;
