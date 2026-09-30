@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
             </div>
             <div>
               <div className="font-bold text-white text-base">مكتب ريان للمساحة والاستشارات الهندسية</div>
-              <div className="text-xs text-rkGoldLight">الرياض</div>
+              <div className="text-xs text-rkGoldLight">المملكة العربية السعودية • الرياض</div>
             </div>
           </div>
 

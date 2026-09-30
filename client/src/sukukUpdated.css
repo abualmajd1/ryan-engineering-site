@@ -351,6 +351,29 @@ body {
   width: min(100%, 1120px);
   margin-inline: auto;
 }
+/* Keep the final row of Sukuk service cards centered on desktop. */
+.sukuk-updated-page .sukuk-services-grid {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+}
+@media (min-width: 1024px) {
+  .sukuk-updated-page .sukuk-services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+  .sukuk-updated-page .sukuk-services-grid > * {
+    flex: 0 1 calc((100% - 4.5rem) / 4);
+    min-width: 0;
+  }
+}
+@media (max-width: 1023px) {
+  .sukuk-updated-page .sukuk-services-grid {
+    display: grid;
+  }
+}
 @media (min-width: 1024px) {
   .sukuk-updated-page .landing-services-grid {
     display: flex;

@@ -70,7 +70,7 @@ export const Services: React.FC = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="sukuk-services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {SERVICES_DATA.map((srv, index) => {
             const formattedIndex = String(index + 1).padStart(2, '0');
             const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
