@@ -1,6 +1,6 @@
 import { sukukUpdatedAsset } from '../asset';
 import React from 'react';
-import { PHONE_DISPLAY } from '../data/siteData';
+import { PHONE_DISPLAY, PHONE_NUMBER } from '../data/siteData';
 
 export const Footer: React.FC = () => {
   return (
@@ -13,12 +13,15 @@ export const Footer: React.FC = () => {
             </div>
             <div>
               <div className="font-bold text-white text-base">مكتب ريان للمساحة والاستشارات الهندسية</div>
-              <div className="text-xs text-rkGoldLight">المملكة العربية السعودية • الرياض - القصيم - الدمام</div>
+              <div className="text-xs text-rkGoldLight">الرياض</div>
             </div>
           </div>
 
-          <div className="text-xs text-gray-400" dir="ltr">
-            هاتف خدمة العملاء: <span className="text-rkGold font-bold">{PHONE_DISPLAY}</span>
+          <div className="text-xs text-gray-400">
+            هاتف خدمة العملاء:{' '}
+            <a href={`tel:${PHONE_NUMBER}`} dir="ltr" className="inline-block text-rkGold font-bold tracking-wide hover:text-rkGoldLight transition-colors" aria-label={`الاتصال بخدمة العملاء ${PHONE_DISPLAY}`}>
+              {PHONE_DISPLAY}
+            </a>
           </div>
         </div>
 
