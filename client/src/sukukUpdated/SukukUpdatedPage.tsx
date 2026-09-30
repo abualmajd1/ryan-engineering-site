@@ -23,7 +23,7 @@ export default function SukukUpdatedPage() {
     meta.content = description;
     let canonical = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical); }
-    canonical.href = `${window.location.origin}${import.meta.env.BASE_URL}sukuk/`;
+    canonical.href = `${window.location.origin}${import.meta.env.BASE_URL}lp/sukuk/`;
   }, []);
   return (
     <div dir="rtl" className="sukuk-updated-page min-h-screen flex flex-col bg-[#F7F4EE] text-[#2F2F2F] relative selection:bg-rkGold selection:text-[#3F1620] pb-16 lg:pb-0">
