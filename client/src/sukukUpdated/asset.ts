@@ -1,1 +1,3 @@
-export const sukukUpdatedAsset = (path: string) => `${import.meta.env.BASE_URL}sukuk-updated/${path.replace(/^\//, '')}`;
+import { ryanAsset } from '../runtime';
+
+export const sukukUpdatedAsset = (path: string) => ryanAsset(`sukuk-updated/${path.replace(/^\//, '')}`);
